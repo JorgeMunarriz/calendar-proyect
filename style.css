@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,900&display=swap");
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADER */
+.btn-help {
+  position: absolute;
+  display: none;
+  background-color: #f9f9f9;
+  padding: 20px;
+  list-style: none;
+  z-index: 1;
+}
+
+.nav-item:hover .btn-help {
+  display: block;
+}
+
+.btn-help li {
+  padding: 8px;
+}
+
+.btn-help li:hover {
+  display: inline-block;
+  background-color: #e5e5ff;
+  border-radius: 5px;
+  color: #c1eaf2;
+}
+
+/* SHOW REMINDER */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* LIGHT BODY THEME */
+.body-container {
+  background: linear-gradient(transparent, rgba(0, 0, 255, 0.493) 50%, transparent);
+}
+
+/* GENERAL SELECTORS CALENDAR */
+.general-container {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #0962ea;
+  border-radius: 10px;
+  background: linear-gradient(67.6deg, rgb(225, 242, 254) -2.8%, rgb(193, 224, 250) 44.6%, rgb(19, 116, 197) 102.4%);
+  box-shadow: 45px 31px 15px -14px rgba(8, 0, 0, 0.4);
+}
+
+.general-container .month {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.general-container .month .prev,
+.general-container .month .next {
+  cursor: pointer;
+  margin: 0 15px 0 15px;
+  color: #3d19dd;
+}
+
+.general-container .month .prev:hover,
+.general-container .month .next:hover {
+  color: black;
+}
+
+.general-container .week {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #062d92;
+}
+
+.general-container .week .div-text-week {
+  display: flex;
+  justify-content: center;
+  flex: 1; /* IT ALLOWS EVERY DAY OF THE WEEK TO EXPAND SO THEY CAN FILL THE AVAILABLE SPACE */
+  text-align: center;
+}
+.week-days {
+  font-size: clamp(0.5rem, 4vw, 1rem);
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 0.1rem;
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  color: #2d4059;
+}
+.today {
+  background-color: #a1d9ff;
+  color: #a64452;
+}
+.previous-month {
+  background-color: #83cee0;
+  color: #e70000;
+}
+.next-month {
+  background-color: #1f8ea3;
+  color: #9dda52;
+  font-weight: 470;
+}
+.tearing-effect-nextMonth {
+  animation: tearing-effect-nextMonth 0.6s ease-in-out;
+}
+.tearing-effect-lastMont {
+  animation: tearing-effect-lastMont 0.6s ease-in-out;
+}
+.days .day {
+  border: 1px solid #d1d1d1;
+  width: calc(100% / 7);
+  height: clamp(1rem, 10px + 15vh, 110px);
+  overflow: hidden;
+  
+}
+.days .day:hover {
+  border: 1px solid #cdeeaa;
+  background-color: #a1eafb;
+  color: #ff6a38;  
+  
+}
+
+.day{
+  border-radius: 5px;
+}
+
+.day-event-dropdown {
+  position: relative;
+  display: flex;
+  height: 17px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.day-event-dropdown:hover {
+  position: absolute;
+  width: 15vw;
+  height: 20vh;
+  border-radius: 1rem;
+  padding-top: 5px;
+  z-index: 10000;
+  transform: scale(1.1);
+}
+.event-hover-details {
+  color: #2e2e2e;
+  cursor: pointer;
+}
+
+.work-event {
+  background-color: rgb(233, 93, 93);
+  font-size: clamp(0.3rem, 3vh, 15px);
+  cursor: pointer;
+}
+
+.family-event {
+  background-color: rgb(173, 216, 230);
+  cursor: pointer;
+}
+
+.friends-event {
+  background-color: rgb(255, 255, 0);
+  cursor: pointer;
+}
+
+.doctor-event {
+  background-color: rgb(255, 165, 0);
+  cursor: pointer;
+}
+
+.private-event {
+  background-color: rgb(144, 238, 144);
+  font-size: min(max(0.3rem, 3vh), 15px);
+  cursor: pointer;
+}
+
+
+.minute-list {
+  cursor: pointer;
+}
+/* B U T T O N   M O D A L   D A Y   E V E N T */
+.add-button-container {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+}
+
+.hover-button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.plus-icon {
+  position: relative;
+  display: flex;
+  font-size: 1.8rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  transition: color 0.5s;
+}
+
+.hover-button:hover .plus-icon {
+  color: grey;
+}
+
+/* - - - D A R K    T H E M E */
+.body-container.dark {
+  background: linear-gradient(transparent, rgba(5, 5, 133, 0.493) 50%, transparent);
+}
+.general-container.dark {
+  color: #c0d3c2;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 0%, rgba(64, 64, 101, 1) 89%);
+  box-shadow: 45px 31px 15px -14px rgba(119, 117, 117, 0.699);
+}
+
+
+
+
+/* - - - - - - - - - - M E D I A    Q U E R I E S - - - - - - - - - - */
+@media only screen and (max-width: 480px) {
+  /* SPECIFIC STYLES FOR MOBILE DEVICES */
+  .general-container {
+    background: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
+  }
+  .general-container .month {
+    font-size: 1.3rem;
+    color: #005792;
+  }
+
+  .days .day {
+    height: 3rem;
+    font-size: 0.7rem;
+  }
+  .add-button-container {
+    width: auto;
+    height: 1.5rem;
+  }
+  .plus-icon {
+    font-size: 1.2rem;
+  }
+}
+
+/* - - - - - - -   S C R O L L B A R  S T Y L E S      - - - - - - - - - -  */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #c0d3c2;
+}
+::-webkit-scrollbar-button {
+  width: 5px;
+  height: 8px;
+  background-color: #4946d4;
+}
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  height: 8px;
+  background-color: #4946d4;
+}
+::-webkit-scrollbar-track {
+  width: 5px;
+  height: 8px;
+  background-color: #d44688;
+}
+
+/*- - - - -  Change of month animation - - - - - - - */
+@keyframes tearing-effect-nextMonth {
+  0% {
+    transform: rotateZ(0deg) scale(1) skewX(0deg);
+    transform-origin: top left;
+  }
+  50% {
+    transform: rotateZ(20deg) scale(0.8, 1.2) skewX(10deg);
+    transform-origin: top bottom;
+  }
+  100% {
+    transform: rotateZ(0deg) scale(1) skewX(0deg);
+    transform-origin: top right;
+  }
+}
+
+@keyframes tearing-effect-lastMont {
+  0% {
+    transform: rotateZ(0deg) scale(1) skewX(0deg);
+    transform-origin: top right;
+  }
+  50% {
+    transform: rotateZ(-20deg) scale(0.8, 1.2) skewX(-10deg);
+    transform-origin: top bottom;
+  }
+  100% {
+    transform: rotateZ(0deg) scale(1) skewX(0deg);
+    transform-origin: top left;
+  }
+}
