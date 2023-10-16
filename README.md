@@ -1,5 +1,9 @@
 # Web Calendar App
 
+Web Calendar App is a versatile web-based calendar application built with HTML, TypeScript, and Bootstrap. It allows users to view and manage their schedules, events, and weather information. With this application, you can seamlessly organize your time, track events, and stay updated with the weather forecast in your area.
+
+You can visit the following Link to see the application deployed on the internet:  https://calendar-proyect.vercel.app/
+
 ## Mobile version
 ![Web Calendar App](/img/mobile.png)
 
@@ -13,9 +17,6 @@
 ![Web Calendar App](/img/mac-dark.png)
 
 
-Web Calendar App is a versatile web-based calendar application built with HTML, TypeScript, and Bootstrap. It allows users to view and manage their schedules, events, and weather information. With this application, you can seamlessly organize your time, track events, and stay updated with the weather forecast in your area.
-
-You can visit the following Link to see the application deployed on the internet:  https://calendar-proyect.vercel.app/
 
 ## Features
 
